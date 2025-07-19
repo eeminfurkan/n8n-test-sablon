@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Sitem</title>
+    <style>
+        body { display: grid; place-content: center; min-height: 100vh; font-family: sans-serif; background-color: #f0f2f5; }
+        h1 { font-size: 3rem; color: #1c1e21; }
+    </style>
+</head>
+<body>
+    <h1 id="site-title">Yükleniyor...</h1>
+
+    <script>
+        // Sayfa yüklendiğinde çalışacak fonksiyon
+        window.onload = function() {
+            // Tarayıcının adres çubuğundaki URL'den parametreleri al
+            const urlParams = new URLSearchParams(window.location.search);
+            // "siteName" adındaki parametreyi al
+            const siteName = urlParams.get('siteName');
+
+            const titleElement = document.getElementById('site-title');
+
+            if (siteName) {
+                // Eğer parametre varsa, başlığı güncelle
+                titleElement.textContent = `Merhaba, ${siteName}!`;
+            } else {
+                // Eğer parametre yoksa, varsayılan bir mesaj göster
+                titleElement.textContent = 'Site Adı Belirtilmedi!';
+            }
+        };
+    </script>
+</body>
+</html>
